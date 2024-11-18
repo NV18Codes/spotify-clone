@@ -5,28 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify Clone</title>
+    <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" type="image/svg+xml">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Hide scrollbar */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
 
         .no-scrollbar {
             -ms-overflow-style: none;
+            /* IE and Edge */
             scrollbar-width: none;
+            /* Firefox */
         }
     </style>
 </head>
 
-<body class="bg-black text-white font-sans min-h-screen flex flex-col">
-    <!-- Navigation -->
+<body class="bg-black text-white font-sans">
+    
     <nav class="flex justify-between items-center p-4 border-b border-gray-800">
         <!-- Left section: Logo -->
         <div class="flex items-center space-x-4">
             <a href="index.html">
-                <img src="data:image/png;base64,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"
-                    alt="Spotify Logo" class="h-8 text-center"></a>
+                <img src="https://martech.org/wp-content/uploads/2017/09/spotify-logo-1920x1080.jpg"
+                    alt="Spotify Logo" class="h-20 w-40 text-center"></a>
         </div>
         <!-- Center section: Search bar with Home and Browse icons -->
         <div class="flex items-center bg-gray-800 rounded-full px-4 py-2 flex-grow mx-4 max-w-md">
@@ -43,9 +47,97 @@
                 class="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition font-semibold">Log in</a>
         </div>
     </nav>
+    <script>
+       // Fetch Spotify token
+async function getSpotifyToken() {
+    const clientId = '7d076889a9ec42e2abb9d07196a2baa8';
+    const clientSecret = '693c9e98ae6644849a9dd7d7b3326d8f';
 
-    <!-- Layout Container -->
-    <div class="flex flex-col md:flex-row flex-1 overflow-hidden">
+    try {
+        const response = await fetch('https://accounts.spotify.com/api/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: 'Basic ' + btoa(`${clientId}:${clientSecret}`),
+            },
+            body: 'grant_type=client_credentials',
+        });
+
+        if (!response.ok) throw new Error(`Failed to fetch token: ${response.statusText}`);
+        const data = await response.json();
+        return data.access_token;
+    } catch (error) {
+        console.error('Error fetching Spotify token:', error);
+        return null;
+    }
+}
+
+// Fetch featured playlists
+async function fetchSpotifyData() {
+    const token = await getSpotifyToken();
+    if (!token) {
+        console.error('Cannot fetch playlists without a valid token');
+        return;
+    }
+
+    try {
+        const apiUrl = 'https://api.spotify.com/v1/browse/featured-playlists';
+        const response = await fetch(apiUrl, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        if (!response.ok) throw new Error(`Failed to fetch playlists: ${response.statusText}`);
+        const data = await response.json();
+        displayPlaylists(data.playlists.items);
+    } catch (error) {
+        console.error('Error fetching Spotify playlists:', error);
+    }
+}
+
+// Display playlists
+function displayPlaylists(playlists) {
+    const container = document.querySelector('.grid');
+    container.innerHTML = ''; // Clear existing content
+
+    if (!playlists.length) {
+        container.innerHTML = `<p class="text-gray-300">No playlists available at the moment.</p>`;
+        return;
+    }
+
+    playlists.forEach((playlist) => {
+        const html = `
+            <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition cursor-pointer" 
+                data-playlist-id="${playlist.id}">
+                <img src="${playlist.images[0]?.url}" alt="${playlist.name}" class="rounded-lg mb-4">
+                <h3 class="font-semibold">${playlist.name}</h3>
+                <p class="text-sm text-gray-200">${playlist.description}</p>
+            </div>
+        `;
+        container.insertAdjacentHTML('beforeend', html);
+    });
+
+    // Add event listeners to each playlist
+    const playlistItems = document.querySelectorAll('.grid div');
+    playlistItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+            const playlistId = e.currentTarget.dataset.playlistId;
+            // Store the playlist ID in localStorage
+            localStorage.setItem('selectedPlaylistId', playlistId);
+            // Navigate to the playlist details page
+            window.location.href = 'playlist.html'; // redirect to new page
+        });
+    });
+}
+
+// Fetch and display featured playlists on page load
+document.addEventListener('DOMContentLoaded', fetchSpotifyData);
+
+    </script>
+
+     <!-- Layout Container -->
+     <div class="flex flex-col md:flex-row flex-1 overflow-hidden">
         <!-- Sidebar -->
         <aside class="w-full md:w-64 bg-gray-900 p-6 border-r border-gray-800 flex-shrink-0">
             <div class="mb-6 text-center md:text-left">
@@ -114,29 +206,7 @@
                 </div>
             </div>
 
-            <!-- Editor's Playlists -->
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Playlists from our Editors</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-                <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/300x200" alt="Chilled Classics" class="rounded-lg mb-4">
-                    <h3 class="font-semibold">Chilled Classics</h3>
-                </div>
-                <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/300x200" alt="Peaceful Piano" class="rounded-lg mb-4">
-                    <h3 class="font-semibold">Peaceful Piano</h3>
-                </div>
-                <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/300x200" alt="Mega Hit Mix" class="rounded-lg mb-4">
-                    <h3 class="font-semibold">Mega Hit Mix</h3>
-                </div>
-                <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition">
-                    <img src="https://via.placeholder.com/300x200" alt="Chilled R&B" class="rounded-lg mb-4">
-                    <h3 class="font-semibold">Chilled R&B</h3>
-                </div>
-            </div>
-        </main>
-    </div>
-
+           
     <!-- Footer Banner -->
     <div
         class="fixed bottom-0 left-0 w-full bg-purple-700 text-white p-4 flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
@@ -191,6 +261,7 @@
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>
