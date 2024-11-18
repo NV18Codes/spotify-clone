@@ -17,6 +17,8 @@
             width: 300px;
             height: 300px;
             object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
         }
 
         .track-item:hover {
@@ -32,7 +34,7 @@
         .button-back {
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 50%;
-            padding: 10px;
+            padding: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -64,7 +66,7 @@
         }
 
         .track-item .track-name {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #e5e5e5;
         }
@@ -82,10 +84,11 @@
             right: 0;
             z-index: 1000;
             background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
+            padding: 12px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
 
         .header img {
@@ -93,7 +96,54 @@
         }
 
         .main-container {
-            margin-top: 90px; /* To compensate for the fixed header */
+            margin-top: 100px; /* To compensate for the fixed header */
+        }
+
+        .track-item {
+            padding: 14px;
+            border-radius: 8px;
+        }
+
+        .track-item:hover {
+            background-color: #444;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-back svg {
+            width: 24px;
+            height: 24px;
+            color: white;
+        }
+
+        /* Search Bar Styles */
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 10px 15px;
+            border-radius: 50px;
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            border: 1px solid #555;
+        }
+
+        .search-bar::placeholder {
+            color: #aaa;
+        }
+
+        /* Play Button Icon Styles */
+        .play-icon {
+            width: 24px;
+            height: 24px;
+            color: #1DB954;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .play-icon:hover {
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -109,16 +159,21 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify Logo" class="h-8">
     </div>
 
+    <!-- Search Bar Section -->
+    <div class="search-bar-container flex justify-center">
+        <input type="text" class="search-bar" placeholder="Search for tracks...">
+    </div>
+
     <!-- Main Container -->
     <div class="main-container flex flex-col items-center justify-center p-6">
         <!-- Playlist Details Section -->
-        <div class="playlist-details text-center">
+        <div class="playlist-details text-center max-w-3xl w-full">
             <!-- Content dynamically populated here -->
         </div>
 
         <!-- Tracks Section -->
         <div class="p-6 mt-10 w-full max-w-4xl">
-            <h3 class="text-2xl font-semibold mb-4">Tracks</h3>
+            <h3 class="text-2xl font-semibold mb-6">Tracks</h3>
             <ul class="space-y-4 track-list">
                 <!-- Dynamically added tracks will go here -->
             </ul>
@@ -191,12 +246,16 @@
                     const duration = `${Math.floor(track.track.duration_ms / 60000)}:${String(Math.floor((track.track.duration_ms % 60000) / 1000)).padStart(2, '0')}`;
                     tracksList.innerHTML += `
                         <li class="bg-gray-800 p-4 rounded-lg flex justify-between items-center track-item hover:bg-gray-700 transition duration-300">
-                            <div>
+                            <div class="flex items-center">
                                 <span class="text-gray-400 font-semibold text-sm mr-2">${index + 1}.</span>
                                 <span class="track-name">${track.track.name}</span>
-                                <div class="artist-name">${track.track.artists.map(artist => artist.name).join(', ')}</div>
                             </div>
-                            <div class="text-sm text-gray-400 track-duration">${duration}</div>
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="play-icon mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3l14 9-14 9V3z" />
+                                </svg>
+                                <div class="text-sm text-gray-400 track-duration">${duration}</div>
+                            </div>
                         </li>
                     `;
                 });
