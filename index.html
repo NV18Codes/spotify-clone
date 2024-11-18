@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 
 <head>
@@ -8,140 +8,137 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Hide scrollbar */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         .no-scrollbar {
-            -ms-overflow-style: none; /* IE and Edge */
-            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
 
-<body class="bg-black text-white font-sans">
-    <!-- Main Container -->
-    <div class="flex h-screen no-scrollbar overflow-hidden">
+<body class="bg-black text-white font-sans min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="flex justify-between items-center p-4 border-b border-gray-800">
+        <!-- Left section: Logo -->
+        <div class="flex items-center space-x-4">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify Logo" class="h-8">
+        </div>
+        <!-- Center section: Search bar with Home and Browse icons -->
+        <div class="flex items-center bg-gray-800 rounded-full px-4 py-2 flex-grow mx-4 max-w-md">
+            <button class="text-white hover:text-green-500 transition mr-4">
+                <i class="fas fa-home text-2xl"></i>
+            </button>
+            <button class="text-white hover:text-green-500 transition mr-4">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <input type="text" placeholder="What do you want to play?" class="w-full bg-transparent text-white focus:outline-none placeholder-gray-400">
+        </div>
+        <!-- Right section: Sign up and Log in buttons -->
+        <div class="flex items-center space-x-4">
+            <a href="sign-in.html" class="text-gray-300 hover:text-white transition">Sign up</a>
+            <a href="login.html" class="bg-white text-black px-4 py-2 rounded-full hover:bg-gray-200 transition font-semibold">Log in</a>
+        </div>
+    </nav>
 
+    <!-- Layout Container -->
+    <div class="flex flex-col md:flex-row flex-1 overflow-hidden">
         <!-- Sidebar -->
-        <div class="w-1/5 bg-gray-900 p-6 border-r border-gray-800">
-            <!-- Spotify Logo -->
-            <div class="flex items-center mb-6">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
-                    alt="Spotify Logo" class="h-8">
+        <aside class="w-full md:w-64 bg-gray-900 p-6 border-r border-gray-800 flex-shrink-0">
+            <div class="mb-6 text-center md:text-left">
             </div>
-            <!-- Navigation -->
-            <nav class="space-y-6">
-                <a href="#"
-                    class="flex items-center space-x-3 text-lg font-semibold hover:text-green-500 transition-all duration-300 ease-in-out">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 20l-4-4 1.4-1.4L10 17.2l8.6-8.6L20 10l-10 10z"></path>
-                    </svg>
-                    <span>Your Library</span>
-                </a>
-                <button
-                    class="block w-full text-left text-sm mt-6 bg-gray-800 p-2 rounded-md text-gray-200 hover:bg-gray-700 transition-all duration-200">
-                    Create your first playlist
+            <nav class="space-y-4">
+                <!-- Your Playlist with Plus Icon -->
+                <div class="flex items-center justify-between">
+                    <a href="#" class="flex items-center space-x-3 text-lg font-semibold hover:text-green-500 transition">
+                        <i class="fas fa-play-circle text-2xl"></i>
+                        <span>Your Library</span>
+                    </a>
+                    <button class="text-white hover:text-green-500 transition">
+                        <i class="fas fa-plus text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- Info Buttons -->
+                <button class="block w-full text-left text-sm bg-gray-800 p-2 rounded-md hover:bg-gray-700 transition">
+                    <b>Create your first playlist</b><br>
+                    It's easy, we'll help you
                 </button>
-                <button
-                    class="block w-full text-left text-sm bg-gray-800 p-2 rounded-md text-gray-200 hover:bg-gray-700 mt-4 transition-all duration-200">
-                    Let's find some podcasts to follow
+                <button class="block w-full text-left text-sm bg-gray-800 p-2 rounded-md hover:bg-gray-700 transition">
+                    <b>Let's find some podcasts to follow</b><br>
+                    We'll keep you updated on new episodes.
                 </button>
+                
             </nav>
 
-            <!-- Footer Links -->
-            <div class="mt-8 text-xs text-gray-400 space-y-1 border-t border-gray-800 pt-4">
-                <a href="#" class="hover:text-white transition-all duration-200">Legal</a>
-                <a href="#" class="hover:text-white transition-all duration-200">Privacy Center</a>
-                <a href="#" class="hover:text-white transition-all duration-200">Cookies</a>
-                <a href="#" class="hover:text-white transition-all duration-200">About Ads</a>
+            <!-- Legal and Language Options -->
+            <div class="mt-8 text-xs text-gray-400 border-t border-gray-800 pt-4 space-y-2">
+                <a href="#" class="block hover:text-white transition">Legal</a>
+                <a href="#" class="block hover:text-white transition">Privacy Center</a>
+                <a href="#" class="block hover:text-white transition">Cookies</a>
+                <a href="#" class="block hover:text-white transition">About Ads</a>
             </div>
-            <div class="mt-6 text-xs text-gray-400">
-                <button
-                    class="w-full bg-gray-800 p-2 rounded-md hover:bg-gray-700 transition-all duration-200">English</button>
+            <div class="mt-6 text-xs">
+                <button class="w-full bg-gray-800 p-2 rounded-md hover:bg-gray-700 transition">English</button>
             </div>
-        </div>
+        </aside>
 
         <!-- Main Content -->
-        <div class="flex-1 p-6 overflow-y-scroll no-scrollbar">
-            <!-- Header Section -->
-            <div class="flex items-center justify-between mb-8">
-                <div class="flex items-center bg-gray-800 px-4 py-2 rounded-lg w-full md:w-1/2">
-                    <input type="text" placeholder="What do you want to play?"
-                        class="w-full bg-transparent text-white focus:outline-none placeholder-gray-400">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M11 3a8 8 0 018 8 8 8 0 01-8 8 8 8 0 010-16zM21 21l-4.35-4.35" />
-                    </svg>
-                </div>
-                <div class="flex space-x-4">
-                    <button
-                        class="bg-white text-black px-4 py-2 rounded-lg transition-all duration-200 hover:bg-gray-100">Sign
-                        up</button>
-                    <button
-                        class="border border-white px-4 py-2 rounded-lg transition-all duration-200 hover:bg-gray-100">Log
-                        in</button>
-                </div>
+        <main class="flex-1 p-4 md:p-6 overflow-y-auto no-scrollbar">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-4 md:mb-8">
+                <h2 class="text-3xl font-bold mb-4">Welcome to Spotify Clone</h2>
             </div>
 
             <!-- Featured Charts -->
-            <h2 class="text-3xl font-bold mb-6">Featured Charts</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-                <!-- Example Chart Card with different background colors -->
-                <div class="bg-purple-700 p-6 rounded-lg transition-all duration-300 hover:shadow-xl">
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Featured Charts</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 mb-4 md:mb-8">
+                <div class="bg-purple-700 p-4 md:p-6 rounded-lg hover:shadow-xl transition">
                     <h3 class="font-semibold">Top Songs Global</h3>
-                    <p class="text-gray-200 text-sm">Your weekly update of the most played tracks...</p>
+                    <p class="text-sm text-gray-200">Your weekly update of the most played tracks...</p>
                 </div>
-                <div class="bg-red-700 p-6 rounded-lg transition-all duration-300 hover:shadow-xl">
+                <div class="bg-red-700 p-4 md:p-6 rounded-lg hover:shadow-xl transition">
                     <h3 class="font-semibold">Top Songs USA</h3>
-                    <p class="text-gray-200 text-sm">Your weekly update of the most played tracks...</p>
+                    <p class="text-sm text-gray-200">Your weekly update of the most played tracks...</p>
                 </div>
-                <div class="bg-blue-700 p-6 rounded-lg transition-all duration-300 hover:shadow-xl">
+                <div class="bg-blue-700 p-4 md:p-6 rounded-lg hover:shadow-xl transition">
                     <h3 class="font-semibold">Top 50 Global</h3>
-                    <p class="text-gray-200 text-sm">Your daily update of the most played tracks...</p>
+                    <p class="text-sm text-gray-200">Your daily update of the most played tracks...</p>
                 </div>
-                <div class="bg-green-700 p-6 rounded-lg transition-all duration-300 hover:shadow-xl">
+                <div class="bg-green-700 p-4 md:p-6 rounded-lg hover:shadow-xl transition">
                     <h3 class="font-semibold">Viral 50 Global</h3>
-                    <p class="text-gray-200 text-sm">Your daily update of the most viral tracks right now...</p>
+                    <p class="text-sm text-gray-200">Your daily update of the most viral tracks right now...</p>
                 </div>
             </div>
 
-            <!-- Playlists from Editors -->
-            <h2 class="text-3xl font-bold mb-6">Playlists from our Editors</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                <!-- Example Playlist Card -->
-                <div class="bg-gray-800 p-6 rounded-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700">
-                    <img src="https://via.placeholder.com/300x200" alt="Chilled Classics"
-                        class="rounded-lg mb-4 transition-all duration-200">
+            <!-- Editor's Playlists -->
+            <h2 class="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Playlists from our Editors</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/300x200" alt="Chilled Classics" class="rounded-lg mb-4">
                     <h3 class="font-semibold">Chilled Classics</h3>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700">
-                    <img src="https://via.placeholder.com/300x200" alt="Peaceful Piano"
-                        class="rounded-lg mb-4 transition-all duration-200">
+                <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/300x200" alt="Peaceful Piano" class="rounded-lg mb-4">
                     <h3 class="font-semibold">Peaceful Piano</h3>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700">
-                    <img src="https://via.placeholder.com/300x200" alt="Mega Hit Mix"
-                        class="rounded-lg mb-4 transition-all duration-200">
+                <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/300x200" alt="Mega Hit Mix" class="rounded-lg mb-4">
                     <h3 class="font-semibold">Mega Hit Mix</h3>
                 </div>
-                <div class="bg-gray-800 p-6 rounded-lg transition-all duration-300 hover:shadow-xl hover:bg-gray-700">
-                    <img src="https://via.placeholder.com/300x200" alt="Chilled R&B"
-                        class="rounded-lg mb-4 transition-all duration-200">
+                <div class="bg-gray-800 p-4 md:p-6 rounded-lg hover:bg-gray-700 hover:shadow-lg transition">
+                    <img src="https://via.placeholder.com/300x200" alt="Chilled R&B" class="rounded-lg mb-4">
                     <h3 class="font-semibold">Chilled R&B</h3>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
 
     <!-- Footer Banner -->
-    <div
-        class="fixed bottom-0 left-0 w-full bg-purple-700 text-white p-4 flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-        <p class="text-sm text-center md:text-left">Preview of Spotify • Sign up to get unlimited songs and podcasts
-            with occasional ads. No credit card needed.</p>
-        <button class="bg-white text-black px-6 py-2 rounded-full hover:bg-gray-200 transition-all">Sign up
-            free</button>
+    <div class="fixed bottom-0 left-0 w-full bg-purple-700 text-white p-4 flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+        <p class="text-sm text-center md:text-left">Preview of Spotify • Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
+        <button class="bg-white text-black px-6 py-2 rounded-full hover:bg-gray-200 transition-all"><a href="sign-in.html">Sign up free</a></button>
     </div>
 
     <!-- Footer Section -->
@@ -187,5 +184,4 @@
         </div>
     </footer>
 </body>
-
 </html>

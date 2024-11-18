@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black flex items-center justify-center min-h-screen">
+    <div class="bg-black text-white w-full max-w-md p-6">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg"
+                    alt="Spotify Logo" class="h-8 text-center">
+        <h1 class="text-3xl font-bold mb-6 text-center">Sign up to start listening</h1>
+        <form class="space-y-4">
+            <div>
+                <label for="email" class="sr-only">Email address</label>
+                <input type="email" id="email" class="w-full p-3 rounded bg-gray-800 border border-gray-700 text-white placeholder-gray-400" placeholder="name@domain.com" required>
+            </div>
+            <p class="text-green-400 text-sm text-center cursor-pointer hover:underline">Use phone number instead.</p>
+            <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded font-semibold">Next</button>
+        </form>
+        <div class="my-6 flex items-center justify-between">
+            <hr class="w-2/5 border-gray-700">
+            <span class="text-gray-400 text-sm">or</span>
+            <hr class="w-2/5 border-gray-700">
+        </div>
+        <div class="space-y-4">
+            <button class="w-full flex items-center justify-center bg-white text-black py-3 rounded font-semibold space-x-2">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.04c-5.52 0-9.96 4.44-9.96 9.96 0 4.95 3.65 9.04 8.37 9.9v-7.02h-2.51v-2.88h2.51v-1.91c0-2.51 1.51-3.9 3.81-3.9 1.08 0 2.21.19 2.21.19v2.44h-1.24c-1.22 0-1.6.76-1.6 1.53v1.65h2.72l-.44 2.88h-2.28v7.02c4.72-.86 8.37-4.95 8.37-9.9 0-5.52-4.44-9.96-9.96-9.96z"/>
+                </svg>
+                <span>Sign up with Google</span>
+            </button>
+            <button class="w-full flex items-center justify-center bg-blue-600 text-white py-3 rounded font-semibold space-x-2">
+                <i class="fab fa-facebook-f"></i>
+                <span>Sign up with Facebook</span>
+            </button>
+            <button class="w-full flex items-center justify-center bg-gray-800 text-white py-3 rounded font-semibold space-x-2">
+                <i class="fab fa-apple"></i>
+                <span>Sign up with Apple</span>
+            </button>
+        </div>
+        <p class="text-center text-sm text-gray-400 mt-6">
+            Already have an account? <a href="login.html" class="text-white hover:underline">Log in here.</a>
+        </p>
+        <p class="text-center text-xs text-gray-600 mt-4">
+            This site is protected by reCAPTCHA and the Google <a href="#" class="text-white hover:underline">Privacy Policy</a> and <a href="#" class="text-white hover:underline">Terms of Service</a> apply.
+        </p>
+    </div>
+</body>
+
+</html>

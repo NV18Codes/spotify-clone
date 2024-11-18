@@ -1,0 +1,67 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body class="bg-black flex flex-col items-center justify-between min-h-screen text-white">
+    <!-- Login Container -->
+    <div class="bg-gray-900 p-8 rounded-lg shadow-lg w-full max-w-md">
+        <div class="text-center mb-6">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" alt="Spotify Logo" class="h-12 mx-auto">
+            <h1 class="text-2xl font-bold mt-4">Log in to Spotify</h1>
+        </div>
+        <!-- Social Login Buttons -->
+        <div class="space-y-3">
+            <button class="flex items-center justify-center bg-gray-800 hover:bg-gray-700 text-white w-full py-2 rounded-md transition">
+                <i class="fab fa-google mr-2"></i> Continue with Google
+            </button>
+            <button class="flex items-center justify-center bg-gray-800 hover:bg-gray-700 text-white w-full py-2 rounded-md transition">
+                <i class="fab fa-facebook mr-2"></i> Continue with Facebook
+            </button>
+            <button class="flex items-center justify-center bg-gray-800 hover:bg-gray-700 text-white w-full py-2 rounded-md transition">
+                <i class="fab fa-apple mr-2"></i> Continue with Apple
+            </button>
+            <button class="flex items-center justify-center bg-gray-800 hover:bg-gray-700 text-white w-full py-2 rounded-md transition">
+                <i class="fas fa-phone mr-2"></i> Continue with phone number
+            </button>
+        </div>
+        <!-- Divider -->
+        <div class="my-6 border-t border-gray-700"></div>
+        <!-- Login Form -->
+        <form>
+            <div class="space-y-4">
+                <div>
+                    <label for="email" class="block text-sm font-medium">Email or username</label>
+                    <input type="text" id="email" class="w-full bg-gray-800 border border-gray-700 rounded-md p-2 text-white focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Email or username">
+                </div>
+                <div>
+                    <label for="password" class="block text-sm font-medium">Password</label>
+                    <input type="password" id="password" class="w-full bg-gray-800 border border-gray-700 rounded-md p-2 text-white focus:outline-none focus:ring-2 focus:ring-green-500" placeholder="Password">
+                </div>
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded-md font-bold transition">Log In</button>
+            </div>
+        </form>
+        <!-- Links -->
+        <div class="mt-4 text-center">
+            <a href="#" class="text-sm text-green-500 hover:underline">Forgot your password?</a>
+        </div>
+        <div class="mt-4 text-center text-sm">
+            <p>Don't have an account? <a href="sign-in.html" class="text-green-500 hover:underline">Sign up for Spotify</a></p>
+        </div>
+    </div>
+
+    <p class="text-center text-sm text-gray-400 mt-6">
+        Already have an account? <a href="login.html" class="text-white hover:underline">Log in here.</a>
+    </p>
+    <p class="text-center text-xs text-gray-600 mt-4">
+        This site is protected by reCAPTCHA and the Google <a href="#" class="text-white hover:underline">Privacy Policy</a> and <a href="#" class="text-white hover:underline">Terms of Service</a> apply.
+    </p>
+</body>
+
+</html>
